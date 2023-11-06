@@ -10,17 +10,17 @@ const BASE_DIR = path.resolve(process.cwd(), "src/");
 
 module.exports = async function analyze(givenDirectory = BASE_DIR) {
   const filesDir = path.resolve(process.cwd(), givenDirectory);
-  const jsFilesToAnalyze = await globPromise("**/*.js", {
+  const filesToAnalyze = await globPromise("**/*.{js,ts,tsx}", {
     cwd: filesDir,
   });
 
-  if (jsFilesToAnalyze.length === 0) {
+  if (filesToAnalyze.length === 0) {
     emptyFilesWarning();
     return;
   }
 
   const results = await Promise.all(
-    jsFilesToAnalyze.map(async (file) => {
+    filesToAnalyze.map(async (file) => {
       const source = await fsPromise.readFile(
         path.resolve(filesDir, file),
         "utf-8"

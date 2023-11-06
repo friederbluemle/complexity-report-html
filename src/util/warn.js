@@ -1,7 +1,7 @@
 const colors = require("colors");
 
 module.exports = function warn() {
-  console.warn(colors.yellow(`No JavaScript files found!`));
+  console.warn(colors.yellow(`No source files found!`));
   console.warn(`Please provide the correct directory using:`);
   console.warn(
     colors.green("\t complexity-report-html generate ") +
