@@ -4,3 +4,5 @@ npm-debug.log
 
 .complexity-report
 build/out
+
+.idea/
